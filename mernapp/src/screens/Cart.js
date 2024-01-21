@@ -1,4 +1,4 @@
-import React from 'react'
+import React from 'react';
 import { FaTrash } from "react-icons/fa";
 import { useCart, useDispatchCart } from '../components/ContextReducer';
 export default function Cart() {

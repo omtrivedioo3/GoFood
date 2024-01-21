@@ -1,9 +1,9 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { useCart, useDispatchCart } from './ContextReducer';
+import { useDispatchCart } from './ContextReducer';
 // import { Dropdown, DropdownButton } from 'react-bootstrap';
 export default function Card(props) {
-  let data = useCart();
+  let data = props.foodItem;
 
   let navigate = useNavigate()
   const [qty, setQty] = useState(1)
@@ -31,13 +31,18 @@ export default function Card(props) {
   }
   const handleAddToCart = async () => {
     let food = []
-    for (const item of data) {
-      if (item.id === foodItem._id) {
-        food = item;
-        break;
-      }
-    }
-    console.log(food)
+    // console.log(data)
+
+    // for (const item of data) {
+    //   if (item.id === foodItem._id) {
+    //     food = item;
+    //     break;
+    //   }
+    // }
+    food = data
+    // console.log(food.name)
+    // console.log("om")
+
     console.log(new Date())
     if (food.length !== 0) {
       if (food.size === size) {
@@ -45,15 +50,17 @@ export default function Card(props) {
         return
       }
       else if (food.size !== size) {
-        await dispatch({ type: "ADD", id: props.foodItem._id, name: foodItem.name, price: finalPrice, qty: qty, size: size, img: props.img })
+        await dispatch({ type: "ADD", id: props.foodItem._id, name: food.name, price: finalPrice, qty: qty, size: size, img: props.img })
         console.log("Size different so simply ADD one more to the list")
         return
       }
       return
     }
+    else {
 
-    await dispatch({ type: "ADD", id: props.foodItem._id, name: foodItem.name, price: finalPrice, qty: qty, size: size })
-    await console.log(data);
+      await dispatch({ type: "ADD", id: props.foodItem._id, name: food.name, price: finalPrice, qty: qty, size: size })
+      await console.log(data);
+    }
 
     // setBtnEnable(true)
 
