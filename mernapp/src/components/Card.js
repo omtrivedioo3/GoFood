@@ -9,11 +9,7 @@ export default function Card(props) {
   const [qty, setQty] = useState(1)
   const [size, setSize] = useState("")
   const priceRef = useRef();
-  // const [btnEnable, setBtnEnable] = useState(false);
-  // let totval = 0
-  // let price = Object.values(options).map((value) => {
-  //   return parseInt(value, 10);
-  // });
+
   let options = props.options;
   let priceOptions = Object.keys(options);
   let foodItem = props.item;
@@ -31,18 +27,7 @@ export default function Card(props) {
   }
   const handleAddToCart = async () => {
     let food = []
-    // console.log(data)
-
-    // for (const item of data) {
-    //   if (item.id === foodItem._id) {
-    //     food = item;
-    //     break;
-    //   }
-    // }
     food = data
-    // console.log(food.name)
-    // console.log("om")
-
     console.log(new Date())
     if (food.length !== 0) {
       if (food.size === size) {
