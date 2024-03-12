@@ -1,4 +1,4 @@
-# GOFOOD - MERN Stack Food Delivery App
+# MyFood - MERN Stack Food Delivery App
 
 Welcome to GOFOOD, your one-stop solution for ordering and delivering your favorite meals. This MERN Stack application enables users to discover a variety of food options, place orders, receive invoices, and much more.
 
